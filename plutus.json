@@ -1,0 +1,83 @@
+{
+  "preamble": {
+    "title": "aiken-lang/hello-vesting",
+    "description": "Aiken contracts for project 'aiken-lang/hello-vesting'",
+    "version": "0.0.0",
+    "plutusVersion": "v2",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.0.29-alpha+16fb02e"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "vesting.vesting",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/vesting~1Datum"
+        }
+      },
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/vesting~1Redeemer"
+        }
+      },
+      "compiledCode": "59016e010000323232323232232232253330063253330073370e900118041baa30013009375400426464a66601266002600460166ea8010dd7180198059baa00814a22a66601266002600460166ea8010dd718069807180718059baa0081332232533300c3370e900118069baa0011337120046eb4c040c038dd50008a503004300d37546008601a6ea8008c034c038c038c038c038c038c038c038c02cdd5180118059baa004375a600460166ea80205281119198008009bac300f30103010301030103010301030103010300d375400644a66601e00229404c94ccc034cdc79bae301100200414a226600600600260220024601800229408c02cc0300045261365653330043370e900018029baa001132325333009300b002149858dd7180480098031baa0011653330023370e900018019baa0011323232323232533300b300d002149858dd7180580098058011bae30090013009002375a600e00260086ea8004595cd2ab9d5573caae7d5d0aba201",
+      "hash": "6913cff77ea00090da6a7025bf3418852f62555567c3eff78c925760"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "vesting/Datum": {
+      "title": "Datum",
+      "anyOf": [
+        {
+          "title": "Datum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "lock_until",
+              "description": "POSIX time in second, e.g. 1672843961000",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "owner",
+              "description": "Owner's credentials",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "beneficiary",
+              "description": "Beneficiary's credentials",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    },
+    "vesting/Redeemer": {
+      "title": "Redeemer",
+      "anyOf": [
+        {
+          "title": "Redeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "msg",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
